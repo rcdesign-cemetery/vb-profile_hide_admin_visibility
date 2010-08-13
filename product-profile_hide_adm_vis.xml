@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<product productid="profile_hide_adm_vis" active="1">
+	<title>Profile Hide Admin Visitors</title>
+	<description>Hide admins in member profile recent visitors.</description>
+	<version>0.1</version>
+	<url />
+	<versioncheckurl />
+	<apm_releasedate></apm_releasedate>
+	<apm_author></apm_author>
+	<apm_relatedurl></apm_relatedurl>
+	<apm_extrainfo></apm_extrainfo>
+	<apm_extraedit></apm_extraedit>
+	<dependencies>
+	</dependencies>
+	<codes>
+	</codes>
+	<templates>
+	</templates>
+	<stylevardfns>
+	</stylevardfns>
+	<stylevars>
+	</stylevars>
+	<plugins>
+		<plugin active="1" executionorder="5">
+			<title>Set invisible flag for admin</title>
+			<hookname>member_execute_start</hookname>
+			<phpcode><![CDATA[if($vbulletin->userinfo['permissions']['adminpermissions'] & $vbulletin->bf_ugp_adminpermissions['cancontrolpanel'])
+{
+    $vbulletin->userinfo['options'] =  $vbulletin->userinfo['options'] | $vbulletin->bf_misc_useroptions['invisible'];
+}]]></phpcode>
+		</plugin>
+	</plugins>
+	<phrases>
+	</phrases>
+	<options>
+	</options>
+	<helptopics>
+	</helptopics>
+	<cronentries>
+	</cronentries>
+	<faqentries>
+	</faqentries>
+	<templateedits>
+	</templateedits>
+</product>
